@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CityListTest {
+class  CityListTest {
 
     private CityList mockCityList() {
         CityList cityList = new CityList();
@@ -52,7 +52,24 @@ class CityListTest {
         cityList.add(city);
 
         assertEquals(0, city.compareTo(cityList.getCities().get(0)));
-        assertEquals(0, mockCity().compareTo(cityList.getCities().get(1)));
+       // assertEquals(0, mockCity().compareTo(cityList.getCities().get(1)));
     }
-
+    @Test
+    void testcountcity() {
+        CityList cityList = mockCityList();
+        assertEquals(1, cityList.countcity());
+        City city = new City("Charlottetown", "Prince Edward Island");
+        cityList.add(city);
+        assertEquals(2, cityList.countcity());
+    }
+    @Test
+    void  testdeletecity(){
+        CityList cityList = mockCityList();
+        assertEquals(1, cityList.countcity());
+        City city = new City("Charlottetown", "Prince Edward Island");
+        cityList.add(city);
+        assertEquals(2, cityList.countcity());
+        cityList.delete(city);
+        assertTrue(!cityList.getCities().contains(city));
+    }
 }

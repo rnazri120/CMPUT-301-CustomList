@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * This is a class that keeps track of a list of city objects
  */
-public class CityList {
+public class  CityList {
     private List<City> cities = new ArrayList<>();
 
     /**
@@ -31,6 +31,27 @@ public class CityList {
         List<City> list = cities;
         Collections.sort(list);
         return list;
+    }
+    /**
+     * Function for counting city
+     * @return
+     *      Return the number of city
+     */
+
+    public int countcity(){
+        return cities.size();
+    }
+
+    /**
+     * Function for deleting specified city
+     * @param
+     *      -if city is in the list, delete. If not, give exception
+     */
+    public void delete (City city) {
+        if (!cities.contains(city)) {
+            throw new IllegalArgumentException();
+        }
+        cities.remove(city);
     }
 
 }
